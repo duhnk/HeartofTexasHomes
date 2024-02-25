@@ -1,0 +1,51 @@
+/* CSS Document */
+#div1{
+	border: 10px solid blue;
+	border-radius: thick;
+	padding: 355px;
+	background: url("Images/hthlogin4.png") no-repeat center;
+	background-size: auto;
+	height: 115px;
+	position:relative;
+	
+}
+
+.button{
+	background-color: white;
+	color: black;
+	border: 2px solid #00981F;
+}
+
+.button:hover{
+	background-color: #00981F;
+	color: black;
+}
+.button1{
+	background-color: white;
+	color: black;
+	border: 2px solid #0B09A4;
+}
+
+.button1:hover{
+	background-color: #0B09A4;
+	color: black;
+}
+.agencyButton{
+	background-color: white;
+	color: black;
+	border: 2px solid #0B09A4;
+}
+
+.agencyButton:hover{
+	background-color: #0B09A4;
+	color: black;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+}

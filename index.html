@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HEART of TEXAS HOMES</title>
+		<meta name="Description" content="Homes around San Antonio for rent or purchase">
+	
+
+	</head>
+	<link rel="stylesheet" href="main.css">
+	<body>
+		<script>
+	  function signIn() {
+		// Your code for	
+		const button1 = document.getElementById("button1");
+	  }
+
+	  function signOut() {
+		// Your code for signing out goes here
+		 
+			const button = document.getElementById("button");
+	  }
+
+	  function goToAgency() {
+		// Your code for going to the agency home page goes here	
+		const agencyButton = document.getElementById("agencyButton");
+	  }
+		</script>
+			<div id="div1" align="right">
+					
+			</div>
+		
+		  <div id="button1" align="center">
+						<li><button id="signInButton" ><img src="Images/hthlogin.png" height="20" width="20" alt="">   Create Account / Sign In </button></li>
+					</div> 
+		 <div id="button" align="center">
+				<li><button id="signOutButton" > Sign out </button></li>
+			</div>
+		  <div id="agencyButton" align="center">
+			
+				<li><button type="agencyButton" onClick="document.location='site.html'"> <img src="Images/hthlogin2.png" height="20" width="20" alt=""> Agency Home Page </button></li>
+			</div>
+		
+			<div id="message">
+				<p>You have Signed In</p>
+			</div>
+		
+		<p>
+		<table border="1" align="center">
+			<tr>
+				<th><h2>homes in san antonio</h2></th>
+
+			</tr>
+		</table>
+		</p>
+			<script type="module">
+		  // Import the functions you need from the SDKs you need
+		    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+			import { getAuth,GoogleAuthProvider,signInWithRedirect,signOut,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+		  // TODO: Add SDKs for Firebase products that you want to use
+		  // https://firebase.google.com/docs/web/setup#available-libraries
+
+		  // Your web app's Firebase configuration
+		  const firebaseConfig = {
+			apiKey: "AIzaSyC9w5eJtwV1FinoVFYtoYk7fRVdFdGOOtI",
+			authDomain: "sanantoniohomes-679ee.firebaseapp.com",
+			databaseURL: "https://sanantoniohomes-679ee-default-rtdb.firebaseio.com",
+			projectId: "sanantoniohomes-679ee",
+			storageBucket: "sanantoniohomes-679ee.appspot.com",
+			messagingSenderId: "520949528931",
+			appId: "1:520949528931:web:5f4e2237f69f0ffb373b56"
+		  };
+
+		  // Initialize Firebase
+		  		const app = initializeApp(firebaseConfig);
+				const auth = getAuth();
+				const provider = new GoogleAuthProvider()
+				
+				const signInButton =  document.getElementById("signIn()");
+				const signOutButton = document.getElementById("signOut()");
+				const message = document.getElementById("message");
+				const agencyButton = document.getElementById("goToAgency()");
+				
+				//signOutButton.style.display = "none";
+				//message.style.display = "none";
+				
+				const userSignIn = async() =>{
+					signInWithRedirect(auth,provider)
+					.then((result) => {
+						const user = result.user
+						console.log(user);
+					}).catch((Error) => {
+						const errorCode = Error.code;
+						const errorMessage = error.message;
+						
+					})
+					
+				}
+				
+				const userSignOut = async() => {
+					signOut(auth).then(() => {
+						alert("You have signed out successfully!")
+					}).catch((error) => {})
+					
+				}
+				const userSuccess = async() =>{
+					window.location.href="site.html"
+				}
+				
+				onAuthStateChanged(auth,(user) =>{
+					if(user){
+						signOutButton.style.display = "block";
+						message.style.display = "block";
+						agencyButton.style.display = "block";
+					} else{
+						signOutButton.style.display = "none";
+						message.style.display = "none";
+						agencyButton.style.display = "none";
+					}
+				})
+				
+				signInButton.addEventListener('click',userSignIn);
+				signOutButton.addEventListener('click',userSignOut);
+				agencyButton.addEventListener('click',userSuccess);
+				
+		</script>
+	</body>
+	
+</html>
